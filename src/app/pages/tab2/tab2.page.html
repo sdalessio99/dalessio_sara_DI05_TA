@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Visualización de Datos
+    </ion-title>
+  </ion-toolbar>
+  <ion-button (click)="generarPDF()">Generar PDF</ion-button>
+</ion-header>
+
+<ion-content>
+  <div #container>
+    <div class="dashboard-content">
+      <!-- seccion sirve para que html2canvas convierta cada div marcado en una imagen -->
+      <div class="seccion header">
+        <h1>Dashboard</h1>
+      </div>
+
+      <div class="seccion list-container">
+        <h2>List</h2>
+        <!-- recorrer el array para obtener los datos -->
+        <ul *ngFor="let lista of datosLista">
+          <li>{{lista}}</li>
+        </ul>
+      </div>
+      <div class="seccion table-container">
+        <h2>Table</h2>
+        <!-- aqui en lugar de recorrer el array usamos el componente tabla que hace lo mismo -->
+        <app-tablas [datosTabla]="datosTablaTab1"></app-tablas>
+      </div>
+      <div class="seccion list-container">
+        <h2>List</h2>
+        <ul *ngFor="let lista of datosLista">
+          <li>{{lista}}</li>
+        </ul>
+      </div>
+      <div class="seccion table-container">
+        <h2>Table</h2>
+        <app-tablas [datosTabla]="datosTablaTab1"></app-tablas>
+      </div>
+    </div>
+  </div>
+</ion-content>
