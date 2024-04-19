@@ -1,17 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab 3
+      Visualización de Datos
     </ion-title>
   </ion-toolbar>
+  <ion-button (click)="generarPDF()">Generar PDF</ion-button>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div #container>
+    <div class="dashboard-content">
+      <div class="seccion header">
+        <h1>Dashboard</h1>
+      </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+      <div class="seccion list-container">
+        <h2>List</h2>
+        <ul *ngFor="let lista of datosLista">
+          <li>{{lista}}</li>
+        </ul>
+      </div>
+      <div class="table-container">
+        <h2 class="seccion">Table</h2>
+        <app-tablas [datosTabla]="datosTablaTab1"></app-tablas>
+      </div>
+      <div class="seccion list-container">
+        <h2>List</h2>
+        <ul *ngFor="let lista of datosLista">
+          <li>{{lista}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </ion-content>
